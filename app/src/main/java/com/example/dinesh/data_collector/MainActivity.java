@@ -184,7 +184,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             //background.start(); // for waking every 10 seconds
             // dataread.start();
 
-
+            //hello
 
         }
 
