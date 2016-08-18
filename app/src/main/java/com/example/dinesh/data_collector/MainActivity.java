@@ -216,7 +216,13 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             if(GPSmgr!=null){
                 GPSmgr.removeUpdates(GPSlistener);
                 GPSmgr = null;
+                Intent intent = new Intent(this, Alarm.class);
+                final PendingIntent pIntent = PendingIntent.getBroadcast(this, 0,
+                        intent, 0);
+                AlarmManager alarm = (AlarmManager) this.getSystemService(this.ALARM_SERVICE);
+                alarm.cancel(pIntent);
             }
+
             Intent i = getBaseContext().getPackageManager()
                     .getLaunchIntentForPackage( getBaseContext().getPackageName() );
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
